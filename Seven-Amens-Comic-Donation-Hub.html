@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Amens Before Sundown | Comic Donation</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#B91C1C',secondary:'#713F12'},borderRadius:{'none':'0px','sm':'8px',DEFAULT:'12px','md':'16px','lg':'20px','xl':'24px','2xl':'28px','3xl':'32px','full':'9999px','button':'12px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=West+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        body {
+            background-color: #0F172A;
+            color: #E2E8F0;
+            font-family: 'West Serif', serif;
+        }
+        
+        .title-font {
+            font-family: 'Rye', cursive;
+        }
+        
+        .typewriter-font {
+            font-family: 'Special Elite', cursive;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7)), url('https://readdy.ai/api/search-image?query=dark%20western%20landscape%20at%20dusk%20with%20silhouettes%20of%20mountains%2C%20desert%20plains%20with%20cracked%20earth%2C%20an%20old%20wooden%20cross%20in%20the%20foreground%2C%20eerie%20atmosphere%20with%20a%20blood%20red%20sunset%2C%20mysterious%20fog%2C%20cinematic%20lighting%2C%20ultra%20detailed%2C%20moody%2C%20atmospheric%2C%20horror%20western%20aesthetic&width=1920&height=1080&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #B91C1C 0%, #B91C1C var(--progress, 65%), #1E293B var(--progress, 65%), #1E293B 100%);
+        }
+        
+        .flickering-lantern {
+            animation: flicker 5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.7; }
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 10px;
+            background: #1E293B;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #B91C1C;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #B91C1C;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
+        }
+        
+        .page-turn {
+            transition: transform 0.5s;
+            transform-origin: left;
+        }
+        
+        .page-turn:hover {
+            transform: perspective(1500px) rotateY(15deg);
+            box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .custom-checkbox {
+            display: none;
+        }
+        
+        .custom-checkbox + label {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+        }
+        
+        .custom-checkbox + label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #713F12;
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        
+        .custom-checkbox:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            width: 8px;
+            height: 14px;
+            border: solid #B91C1C;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+        
+        .badge {
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <i class="ri-skull-line text-primary ri-xl"></i>
+                </div>
+                <span class="title-font text-xl text-white">Seven Amens</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#story" class="text-gray-300 hover:text-primary transition">Story</a>
+                <a href="#editions" class="text-gray-300 hover:text-primary transition">Editions</a>
+                <a href="#preview" class="text-gray-300 hover:text-primary transition">Preview</a>
+                <a href="#creator" class="text-gray-300 hover:text-primary transition">Creator</a>
+                <a href="#goals" class="text-gray-300 hover:text-primary transition">Goals</a>
+            </nav>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line text-white ri-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section min-h-[90vh] flex items-center">
+        <div class="container mx-auto px-4 py-16 w-full">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-3/5 mb-10 md:mb-0">
+                    <div class="w-12 h-12 mb-6 flickering-lantern flex items-center justify-center">
+                        <i class="ri-flashlight-line text-amber-400 ri-2x"></i>
+                    </div>
+                    <h1 class="title-font text-4xl md:text-6xl text-white mb-4 leading-tight">Seven Amens Before Sundown</h1>
+                    <p class="typewriter-font text-xl text-gray-300 mb-8 max-w-2xl">When Sawyer Bain's wife vanishes into the cursed town of Half-a-Rock Hill, he must reclaim his violent past to face what lurks after dark.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <button class="bg-primary hover:bg-red-800 text-white font-bold py-3 px-8 !rounded-button shadow-lg transform transition hover:scale-105 whitespace-nowrap">
+                            <i class="ri-heart-fill mr-2"></i> Donate Now
+                        </button>
+                        <button class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 !rounded-button border border-gray-700 transition hover:border-gray-600 whitespace-nowrap">
+                            <i class="ri-book-open-line mr-2"></i> Learn More
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-8">
+                        <div class="flex flex-col">
+                            <span class="text-sm text-gray-400">Campaign ends in:</span>
+                            <div class="flex gap-3 mt-2">
+                                <div class="bg-gray-800 p-3 rounded text-center w-16">
+                                    <span class="text-2xl font-bold text-white">14</span>
+                                    <span class="text-xs text-gray-400 block">Days</span>
+                                </div>
+                                <div class="bg-gray-800 p-3 rounded text-center w-16">
+                                    <span class="text-2xl font-bold text-white">07</span>
+                                    <span class="text-xs text-gray-400 block">Hours</span>
+                                </div>
+                                <div class="bg-gray-800 p-3 rounded text-center w-16">
+                                    <span class="text-2xl font-bold text-white">23</span>
+                                    <span class="text-xs text-gray-400 block">Minutes</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block h-16 w-px bg-gray-700"></div>
+                        
+                        <div class="hidden md:flex items-center gap-2">
+                            <div class="w-10 h-10 flex items-center justify-center">
+                                <i class="ri-user-follow-line text-green-500 ri-xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-2xl font-bold text-white">243</span>
+                                <span class="text-sm text-gray-400 block">Backers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=horror%20western%20comic%20book%20cover%20showing%20a%20gritty%20gunslinger%20in%20silhouette%20against%20a%20blood%20red%20sunset%2C%20holding%20a%20revolver%2C%20with%20eerie%20shadows%20and%20supernatural%20elements%2C%20desert%20landscape%2C%20vintage%20style%20with%20weathered%20edges%2C%20highly%20detailed%2C%20cinematic%20lighting&width=500&height=700&seq=2&orientation=portrait" alt="Seven Amens Before Sundown Cover" class="rounded-lg shadow-2xl max-w-full h-auto border-2 border-gray-800">
+                        <div class="absolute -bottom-4 -right-4 bg-gray-900 px-4 py-2 rounded-lg border border-gray-700 shadow-lg">
+                            <span class="text-sm text-gray-400">44-page horror western</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 py-16" id="donation">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg p-8 border border-gray-700 shadow-xl">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-3/5">
+                        <h2 class="title-font text-3xl mb-6 text-white">Support This Comic</h2>
+                        <p class="mb-6 text-gray-300">Help bring this chilling tale of supernatural western horror to life. Every dollar brings us closer to unleashing Sawyer Bain's dark journey upon the world.</p>
+                        
+                        <div class="mb-8">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">$<span id="current-amount">5,850</span> raised</span>
+                                <span class="text-gray-400">Goal: $9,000</span>
+                            </div>
+                            <div class="h-3 w-full bg-gray-700 rounded-full overflow-hidden mb-1">
+                                <div class="progress-bar h-full rounded-full" style="--progress: 65%"></div>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-400">
+                                <span>65% Complete</span>
+                                <span>243 Backers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label class="block text-gray-300 mb-2">Select your donation amount:</label>
+                            <input type="range" min="5" max="150" value="25" class="slider mb-4" id="donationSlider">
+                            <div class="flex justify-between mb-4">
+                                <span class="text-3xl font-bold text-white">$<span id="donation-value">25</span></span>
+                                <div id="reward-tier" class="text-sm bg-gray-700 px-3 py-1 rounded text-amber-400">
+                                    Digital Edition
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-4 gap-2 mb-6">
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 !rounded-button whitespace-nowrap">$15</button>
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 !rounded-button whitespace-nowrap">$25</button>
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 !rounded-button whitespace-nowrap">$50</button>
+                                <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 !rounded-button whitespace-nowrap">$100</button>
+                            </div>
+                            
+                            <button class="w-full bg-primary hover:bg-red-800 text-white font-bold py-3 !rounded-button shadow-lg transform transition hover:scale-105 mb-4 whitespace-nowrap">
+                                <i class="ri-heart-fill mr-2"></i> Donate Now
+                            </button>
+                            
+                            <div class="flex items-center justify-center">
+                                <input type="checkbox" id="newsletter" class="custom-checkbox">
+                                <label for="newsletter" class="text-sm text-gray-300">Keep me updated on future projects</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/5 bg-gray-900 rounded p-6 border border-gray-700">
+                        <h3 class="title-font text-xl mb-4 text-white">Reward Tiers</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="p-3 border border-gray-700 rounded bg-gray-800">
+                                <h4 class="font-bold text-amber-400">$15 - Digital Edition</h4>
+                                <p class="text-sm text-gray-300">Digital copy of the comic in PDF format</p>
+                            </div>
+                            
+                            <div class="p-3 border border-gray-700 rounded bg-gray-800">
+                                <h4 class="font-bold text-amber-400">$25 - Standard Print</h4>
+                                <p class="text-sm text-gray-300">Physical copy + digital edition</p>
+                            </div>
+                            
+                            <div class="p-3 border border-gray-700 rounded bg-gray-800">
+                                <h4 class="font-bold text-amber-400">$50 - Collector's Bundle</h4>
+                                <p class="text-sm text-gray-300">Signed copy + art print + digital extras</p>
+                            </div>
+                            
+                            <div class="p-3 border border-gray-700 rounded bg-gray-800">
+                                <h4 class="font-bold text-amber-400">$100 - Gunslinger's Pack</h4>
+                                <p class="text-sm text-gray-300">Limited edition hardcover + all extras + your name in the credits</p>
+                            </div>
+                            
+                            <div class="p-3 border border-gray-700 rounded bg-gray-800">
+                                <h4 class="font-bold text-amber-400">$150 - Half-a-Rock VIP</h4>
+                                <p class="text-sm text-gray-300">Everything above + original sketch + exclusive variant cover</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-800 py-16" id="story">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">The Story</h2>
+            
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2">
+                    <h3 class="title-font text-2xl mb-4 text-amber-400">A Gunman's Redemption</h3>
+                    <p class="mb-4 text-gray-300">After years of violence, Sawyer Bain hung up his guns and settled down with his wife, Eleanor, on a small farm outside of Half-a-Rock Hill. For three years, he found peace.</p>
+                    <p class="mb-4 text-gray-300">But when Eleanor vanishes without a trace, Sawyer must confront the darkness he thought he'd left behind. The townspeople whisper of an ancient evil that stirs after sundown, and the local sheriff refuses to help.</p>
+                    <p class="mb-6 text-gray-300">Armed with his old revolvers and a desperate heart, Sawyer ventures into Half-a-Rock Hill as night falls—unaware that some things are better left undisturbed, and that seven prayers might not be enough to save his soul.</p>
+                    
+                    <div class="flex gap-4">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 !rounded-button border border-gray-600 whitespace-nowrap">
+                            <i class="ri-book-open-line mr-2"></i> Read Preview
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=western%20horror%20scene%20showing%20a%20lone%20gunslinger%20walking%20into%20a%20small%20desert%20town%20at%20dusk%2C%20eerie%20atmosphere%2C%20supernatural%20elements%20visible%20in%20shadows%2C%20cinematic%20lighting%20with%20deep%20shadows%20and%20blood%20red%20sunset%2C%20highly%20detailed%2C%20moody%2C%20atmospheric%2C%20horror%20western%20aesthetic&width=600&height=400&seq=3&orientation=landscape" alt="Sawyer entering Half-a-Rock Hill" class="rounded-lg shadow-xl border border-gray-700">
+                        <div class="absolute bottom-4 left-4 right-4 bg-black bg-opacity-70 p-3 rounded">
+                            <p class="text-sm text-gray-300 italic">"The town of Half-a-Rock Hill holds secrets darker than the night itself."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-900 py-16" id="editions">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">Two Haunting Editions</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <div class="mb-6 page-turn">
+                        <img src="https://readdy.ai/api/search-image?query=western%20horror%20comic%20book%20page%20in%20vivid%20colors%2C%20showing%20a%20gunslinger%20facing%20supernatural%20threats%2C%20blood%20red%20sunset%2C%20highly%20detailed%20art%20style%2C%20cinematic%20panels%20with%20dynamic%20composition%2C%20horror%20elements%20with%20vibrant%20colors%2C%20professional%20comic%20book%20art&width=500&height=350&seq=4&orientation=landscape" alt="Grindhouse Edition Preview" class="w-full h-auto rounded shadow-lg">
+                    </div>
+                    <h3 class="title-font text-2xl mb-3 text-red-500">Grindhouse Edition</h3>
+                    <p class="mb-4 text-gray-300">Experience the horror in full, vivid color. The Grindhouse Edition brings the blood-soaked supernatural western to life with striking visuals that emphasize the stark contrast between Sawyer's mundane life and the otherworldly horrors he encounters.</p>
+                    
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">44 pages of full-color horror</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">Premium glossy paper stock</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">Exclusive blood-red foil cover treatment</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-white">$25</span>
+                        <button class="bg-primary hover:bg-red-800 text-white py-2 px-6 !rounded-button whitespace-nowrap">
+                            Select Edition
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <div class="mb-6 page-turn">
+                        <img src="https://readdy.ai/api/search-image?query=western%20horror%20comic%20book%20page%20in%20stark%20black%20and%20white%2C%20noir%20style%2C%20showing%20a%20gunslinger%20facing%20supernatural%20threats%2C%20high%20contrast%20with%20deep%20shadows%2C%20highly%20detailed%20art%20style%2C%20cinematic%20panels%20with%20dynamic%20composition%2C%20horror%20elements%2C%20professional%20comic%20book%20art&width=500&height=350&seq=5&orientation=landscape" alt="Till Death Do Us Part Edition Preview" class="w-full h-auto rounded shadow-lg">
+                    </div>
+                    <h3 class="title-font text-2xl mb-3 text-gray-300">Till Death Do Us Part</h3>
+                    <p class="mb-4 text-gray-300">The stark black and white edition emphasizes the shadows and darkness of Sawyer's journey. This edition strips the horror down to its essence, creating a more atmospheric and psychologically disturbing experience.</p>
+                    
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">44 pages of high-contrast B&W art</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">Matte paper for enhanced noir effect</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 mt-1 flex items-center justify-center text-amber-400">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="ml-2 text-gray-300">Silver embossed cover with weathered finish</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl font-bold text-white">$25</span>
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 !rounded-button border border-gray-600 whitespace-nowrap">
+                            Select Edition
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-800 py-16" id="preview">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">Preview Pages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 page-turn">
+                    <img src="https://readdy.ai/api/search-image?query=western%20horror%20comic%20book%20page%20showing%20a%20farmer%20looking%20at%20an%20empty%20house%2C%20worried%20expression%2C%20sunset%20in%20background%2C%20professional%20comic%20book%20art%20style%2C%20cinematic%20panel%20layout%2C%20highly%20detailed%2C%20moody%20atmosphere&width=400&height=500&seq=6&orientation=portrait" alt="Comic Preview Page 1" class="w-full h-auto">
+                    <div class="p-4">
+                        <p class="text-sm text-gray-300">"Eleanor? The door's wide open... Eleanor?"</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 page-turn">
+                    <img src="https://readdy.ai/api/search-image?query=western%20horror%20comic%20book%20page%20showing%20a%20gunslinger%20opening%20an%20old%20wooden%20chest%20containing%20revolvers%2C%20determined%20expression%2C%20dramatic%20lighting%2C%20professional%20comic%20book%20art%20style%2C%20cinematic%20panel%20layout%2C%20highly%20detailed%2C%20moody%20atmosphere&width=400&height=500&seq=7&orientation=portrait" alt="Comic Preview Page 2" class="w-full h-auto">
+                    <div class="p-4">
+                        <p class="text-sm text-gray-300">"Never thought I'd touch these again. Not after what happened in Widow's Creek."</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-700 page-turn">
+                    <img src="https://readdy.ai/api/search-image?query=western%20horror%20comic%20book%20page%20showing%20a%20man%20on%20horseback%20approaching%20a%20small%20town%20at%20dusk%20with%20ominous%20shadows%2C%20professional%20comic%20book%20art%20style%2C%20cinematic%20panel%20layout%2C%20highly%20detailed%2C%20horror%20western%20aesthetic&width=400&height=500&seq=8&orientation=portrait" alt="Comic Preview Page 3" class="w-full h-auto">
+                    <div class="p-4">
+                        <p class="text-sm text-gray-300">"Half-a-Rock Hill. Where folks say the other half sank straight to hell."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="bg-gray-700 hover:bg-gray-600 text-white py-3 px-8 !rounded-button border border-gray-600 whitespace-nowrap">
+                    <i class="ri-book-open-line mr-2"></i> View More Pages
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 py-16" id="creator">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">Meet the Creator</h2>
+            
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/3">
+                    <div class="relative">
+                        <div class="absolute inset-0 border-2 border-amber-700 rounded-lg transform translate-x-4 translate-y-4"></div>
+                        <img src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20male%20comic%20book%20creator%20in%20his%20studio%2C%20vintage%20western%20style%20clothing%2C%20serious%20expression%2C%20professional%20photography%20with%20dramatic%20lighting%2C%20artistic%20workspace%20in%20background%2C%20cinematic%20portrait&width=400&height=500&seq=9&orientation=portrait" alt="Tom Tuttle" class="relative z-10 rounded-lg shadow-xl border-2 border-gray-700">
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h3 class="title-font text-2xl mb-4 text-amber-400">Tom Tuttle</h3>
+                    <p class="mb-4 text-gray-300">Tom Tuttle is an award-winning comic creator known for his unique blend of western and horror genres. With over a decade of experience in the industry, his previous works include the critically acclaimed "Dust Devils" series and "The Hangman's Daughter."</p>
+                    <p class="mb-6 text-gray-300">"Seven Amens Before Sundown is my most personal project to date. It explores themes of redemption, sacrifice, and the monsters we all carry inside us. I've been developing this story for years, and I'm excited to finally bring it to life with your support."</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <a href="#" class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 px-4 rounded-full border border-gray-700 transition">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-twitter-x-line"></i>
+                            </div>
+                            <span>@TomTuttleComics</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 px-4 rounded-full border border-gray-700 transition">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-instagram-line"></i>
+                            </div>
+                            <span>@tomtuttle</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 py-2 px-4 rounded-full border border-gray-700 transition">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-global-line"></i>
+                            </div>
+                            <span>tomtuttlecomics.com</span>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 class="font-bold text-white mb-2">Previous Works:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gray-700 text-sm text-gray-300 px-3 py-1 rounded">Dust Devils (2018-2020)</span>
+                            <span class="bg-gray-700 text-sm text-gray-300 px-3 py-1 rounded">The Hangman's Daughter (2021)</span>
+                            <span class="bg-gray-700 text-sm text-gray-300 px-3 py-1 rounded">Ghost Town Chronicles (2022)</span>
+                            <span class="bg-gray-700 text-sm text-gray-300 px-3 py-1 rounded">Midnight at the Crossroads (2023)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-800 py-16" id="testimonials">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">What Readers Are Saying</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 relative">
+                    <div class="absolute -top-4 -right-4 badge w-12 h-12 bg-amber-700 flex items-center justify-center">
+                        <span class="text-white font-bold">5★</span>
+                    </div>
+                    <p class="mb-4 text-gray-300 italic">"Tom Tuttle has crafted a perfect blend of western grit and supernatural horror. The artwork is stunning, and Sawyer's journey is both terrifying and deeply moving."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold">JD</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">James Donovan</h4>
+                            <p class="text-sm text-gray-400">Comic Book Resources</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 relative">
+                    <div class="absolute -top-4 -right-4 badge w-12 h-12 bg-amber-700 flex items-center justify-center">
+                        <span class="text-white font-bold">5★</span>
+                    </div>
+                    <p class="mb-4 text-gray-300 italic">"Seven Amens Before Sundown is a masterclass in tension and atmosphere. The black and white edition especially captures the dread that permeates every page. A must-read!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Michelle Rodriguez</h4>
+                            <p class="text-sm text-gray-400">Horror Comics Monthly</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-700 relative">
+                    <div class="absolute -top-4 -right-4 badge w-12 h-12 bg-amber-700 flex items-center justify-center">
+                        <span class="text-white font-bold">4★</span>
+                    </div>
+                    <p class="mb-4 text-gray-300 italic">"Tuttle's storytelling shines in this haunting tale of love and redemption. The artwork perfectly complements the narrative, creating an immersive experience that will stay with you long after you've turned the final page."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold">BT</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Brian Thompson</h4>
+                            <p class="text-sm text-gray-400">Independent Comics Review</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-900 py-16" id="goals">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl mb-12 text-center text-white">Stretch Goals</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="relative">
+                    <div class="absolute top-0 bottom-0 left-[15px] w-1 bg-gray-700"></div>
+                    
+                    <div class="relative z-10 mb-12">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center mr-4 border-2 border-gray-800">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-5 border border-gray-700 flex-1">
+                                <h3 class="text-xl font-bold text-white mb-2">$5,000 - REACHED!</h3>
+                                <p class="text-gray-300">Base goal - Seven Amens Before Sundown will be published in both Grindhouse and Till Death Do Us Part editions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-10 mb-12">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center mr-4 border-2 border-gray-800">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-5 border border-gray-700 flex-1">
+                                <h3 class="text-xl font-bold text-white mb-2">$7,500 - ALMOST THERE!</h3>
+                                <p class="text-gray-300">Exclusive bookmark for all physical edition backers + 8-page digital artbook with concept sketches and development notes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-10 mb-12">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-4 border-2 border-gray-800">
+                                <i class="ri-lock-line text-gray-400"></i>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-5 border border-gray-700 flex-1 opacity-75">
+                                <h3 class="text-xl font-bold text-white mb-2">$10,000</h3>
+                                <p class="text-gray-300">Upgraded hardcover editions for all physical backers + exclusive 11x17 art print by guest artist.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-10 mb-12">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-4 border-2 border-gray-800">
+                                <i class="ri-lock-line text-gray-400"></i>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-5 border border-gray-700 flex-1 opacity-75">
+                                <h3 class="text-xl font-bold text-white mb-2">$15,000</h3>
+                                <p class="text-gray-300">Expanded edition with 12 additional pages of story + behind-the-scenes documentary video on the making of the comic.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-4 border-2 border-gray-800">
+                                <i class="ri-lock-line text-gray-400"></i>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-5 border border-gray-700 flex-1 opacity-75">
+                                <h3 class="text-xl font-bold text-white mb-2">$20,000</h3>
+                                <p class="text-gray-300">Production begins on a sequel comic "Seven Amens: The Reckoning" + all backers receive a limited edition enamel pin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-800 py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-900 rounded-lg p-8 border border-gray-700 shadow-xl">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/3">
+                        <div class="w-20 h-20 mx-auto flickering-lantern flex items-center justify-center">
+                            <i class="ri-flashlight-fill text-amber-400 ri-3x"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h2 class="title-font text-3xl mb-4 text-white">Darkness Falls Soon</h2>
+                        <p class="mb-6 text-gray-300">Don't miss your chance to support this chilling tale. The campaign ends in just 14 days, and Sawyer's journey awaits.</p>
+                        <button class="bg-primary hover:bg-red-800 text-white font-bold py-3 px-8 !rounded-button shadow-lg transform transition hover:scale-105 whitespace-nowrap">
+                            <i class="ri-heart-fill mr-2"></i> Donate Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-10 mb-12">
+                <div class="md:w-1/3">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center">
+                            <i class="ri-skull-line text-primary ri-xl"></i>
+                        </div>
+                        <span class="title-font text-xl text-white">Seven Amens</span>
+                    </a>
+                    <p class="text-gray-400 mb-6">A supernatural western comic by Tom Tuttle, where redemption comes at a terrible price and prayers might not be enough to save your soul.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <h3 class="title-font text-lg text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#story" class="text-gray-400 hover:text-primary transition">The Story</a></li>
+                        <li><a href="#editions" class="text-gray-400 hover:text-primary transition">Editions</a></li>
+                        <li><a href="#preview" class="text-gray-400 hover:text-primary transition">Preview Pages</a></li>
+                        <li><a href="#creator" class="text-gray-400 hover:text-primary transition">About the Creator</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-primary transition">Testimonials</a></li>
+                        <li><a href="#goals" class="text-gray-400 hover:text-primary transition">Stretch Goals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="md:w-1/3">
+                    <h3 class="title-font text-lg text-white mb-4">Join Our Mailing List</h3>
+                    <p class="text-gray-400 mb-4">Stay updated on Seven Amens and future projects from Tom Tuttle.</p>
+                    <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 mb-4 typewriter-font">
+                        <h4 class="font-bold text-white mb-3">WANTED</h4>
+                        <p class="text-sm text-gray-300 mb-4">Brave souls willing to venture into the darkness. Rewards offered.</p>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="bg-gray-900 text-white px-4 py-2 rounded-l border-none focus:outline-none focus:ring-2 focus:ring-primary flex-1">
+                            <button class="bg-primary hover:bg-red-800 text-white px-4 py-2 rounded-r whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Seven Amens Before Sundown. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-gray-400">Terms of Service</a>
+                    <a href="#" class="text-gray-500 text-sm hover:text-gray-400">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.getElementById('donationSlider');
+            const donationValue = document.getElementById('donation-value');
+            const rewardTier = document.getElementById('reward-tier');
+            
+            slider.addEventListener('input', function() {
+                donationValue.textContent = this.value;
+                
+                // Update reward tier based on value
+                if (this.value < 15) {
+                    rewardTier.textContent = 'Digital Edition';
+                    rewardTier.classList.remove('text-green-400', 'text-amber-500');
+                    rewardTier.classList.add('text-amber-400');
+                } else if (this.value < 50) {
+                    rewardTier.textContent = 'Standard Print';
+                    rewardTier.classList.remove('text-amber-400', 'text-amber-500');
+                    rewardTier.classList.add('text-green-400');
+                } else if (this.value < 100) {
+                    rewardTier.textContent = 'Collector\'s Bundle';
+                    rewardTier.classList.remove('text-amber-400', 'text-green-400');
+                    rewardTier.classList.add('text-amber-500');
+                } else if (this.value < 150) {
+                    rewardTier.textContent = 'Gunslinger\'s Pack';
+                    rewardTier.classList.remove('text-amber-400', 'text-green-400');
+                    rewardTier.classList.add('text-amber-500');
+                } else {
+                    rewardTier.textContent = 'Half-a-Rock VIP';
+                    rewardTier.classList.remove('text-amber-400', 'text-green-400');
+                    rewardTier.classList.add('text-amber-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
